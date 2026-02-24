@@ -1,0 +1,4 @@
+pystray>=0.19
+Pillow>=10.0
+hidapi>=0.14
+PySide6>=6.6
