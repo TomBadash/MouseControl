@@ -26,6 +26,10 @@ No telemetry. No cloud. No Logitech account required.
 
 ## Screenshots
 
+<p align="center">
+  <img src="images/Screenshot.png" alt="LogiControl UI" />
+</p>
+
 _The UI shows an interactive diagram of the MX Master 3S. Click any button's hotspot dot to change its action._
 
 ## Supported Device
