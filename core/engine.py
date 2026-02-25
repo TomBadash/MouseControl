@@ -44,27 +44,8 @@ class Engine:
         self.hook.invert_vscroll = settings.get("invert_vscroll", False)
         self.hook.invert_hscroll = settings.get("invert_hscroll", False)
 
-        # MX Master 3S gesture button detection strategy:
-        # 1. HID++ (via hidapi) — fires gesture_down/gesture_up directly
-        # 2. Middle-click fallback — on some connections the gesture button
-        #    appears as WM_MBUTTONDOWN.  If middle is pass-through we map
-        #    those events to the gesture action too.
-        middle_action = mappings.get("middle", "none")
-        gesture_action = mappings.get("gesture", "none")
-        gesture_uses_middle_fallback = (
-            gesture_action != "none" and middle_action == "none"
-        )
-
-        if gesture_uses_middle_fallback:
-            print("[Engine] Gesture fallback enabled (middle-click -> gesture)")
-
         for btn_key, action_id in mappings.items():
-            if btn_key == "gesture":
-                events = list(BUTTON_TO_EVENTS.get("gesture", ()))
-                if gesture_uses_middle_fallback:
-                    events += list(BUTTON_TO_EVENTS.get("middle", ()))
-            else:
-                events = list(BUTTON_TO_EVENTS.get(btn_key, ()))
+            events = list(BUTTON_TO_EVENTS.get(btn_key, ()))
 
             for evt_type in events:
                 if evt_type.endswith("_up"):
