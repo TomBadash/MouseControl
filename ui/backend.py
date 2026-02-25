@@ -3,19 +3,15 @@ QML Backend Bridge — connects the QML UI to the engine and config.
 Exposes properties, signals, and slots for two-way data binding.
 """
 
-import sys
 import os
-
-# Ensure project root is on the path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from PySide6.QtCore import QObject, Property, Signal, Slot, Qt
 
-from config import (
+from core.config import (
     BUTTON_NAMES, load_config, save_config, get_active_mappings,
     set_mapping, create_profile, delete_profile, KNOWN_APPS, get_icon_for_exe,
 )
-from key_simulator import ACTIONS
+from core.key_simulator import ACTIONS
 
 
 def _action_label(action_id):

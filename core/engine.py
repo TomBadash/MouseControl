@@ -5,13 +5,13 @@ Supports per-application auto-switching of profiles.
 """
 
 import threading
-from mouse_hook import MouseHook, MouseEvent
-from key_simulator import execute_action
-from config import (
+from core.mouse_hook import MouseHook, MouseEvent
+from core.key_simulator import execute_action
+from core.config import (
     load_config, get_active_mappings, get_profile_for_app,
     BUTTON_TO_EVENTS, save_config,
 )
-from app_detector import AppDetector
+from core.app_detector import AppDetector
 
 
 class Engine:

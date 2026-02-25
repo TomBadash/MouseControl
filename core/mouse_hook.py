@@ -12,7 +12,7 @@ from ctypes import (CFUNCTYPE, POINTER, Structure, c_int, c_uint, c_ushort,
                     c_ulong, c_void_p, sizeof, byref, create_string_buffer, windll)
 
 try:
-    from hid_gesture import HidGestureListener
+    from core.hid_gesture import HidGestureListener
 except Exception:              # ImportError or hidapi missing
     HidGestureListener = None
 
@@ -198,8 +198,8 @@ WM_APP_INJECT_VSCROLL = WM_APP + 1   # wParam = signed delta (as c_long)
 WM_APP_INJECT_HSCROLL = WM_APP + 2   # wParam = signed delta (as c_long)
 
 # Scroll injection via key_simulator (which has working SendInput + INPUT structs)
-from key_simulator import inject_scroll as _inject_scroll_impl
-from key_simulator import MOUSEEVENTF_WHEEL, MOUSEEVENTF_HWHEEL
+from core.key_simulator import inject_scroll as _inject_scroll_impl
+from core.key_simulator import MOUSEEVENTF_WHEEL, MOUSEEVENTF_HWHEEL
 
 PostMessageW = windll.user32.PostMessageW
 PostMessageW.argtypes = [wintypes.HWND, c_uint, wintypes.WPARAM, wintypes.LPARAM]

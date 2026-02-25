@@ -29,7 +29,7 @@ _pyside_dir = os.path.dirname(PySide6.__file__)
 os.environ.setdefault("QML2_IMPORT_PATH", os.path.join(_pyside_dir, "qml"))
 os.environ.setdefault("QT_PLUGIN_PATH", os.path.join(_pyside_dir, "plugins"))
 
-from engine import Engine
+from core.engine import Engine
 from ui.backend import Backend
 
 

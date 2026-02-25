@@ -191,36 +191,39 @@ All settings are stored in `%APPDATA%\LogiControl\config.json`. The config suppo
 
 ```
 logi-control/
-├── main_qml.py          # Application entry point (PySide6 + QML)
-├── engine.py             # Core engine — wires hook ↔ simulator ↔ config
-├── mouse_hook.py         # Low-level mouse hook + HID++ gesture listener
-├── key_simulator.py      # SendInput-based action simulator (22 actions)
-├── config.py             # Config manager (JSON load/save/migrate)
-├── app_detector.py       # Foreground app polling
-├── LogiControl.bat       # Quick-launch batch file
-├── LogiControl.lnk       # Desktop shortcut
-├── build_icon.py         # Icon generator (logo.png → logo.ico)
-├── requirements.txt      # Python dependencies
+├── main_qml.py              # Application entry point (PySide6 + QML)
+├── LogiControl.bat          # Quick-launch batch file
+├── README.md
+├── requirements.txt
+├── .gitignore
 │
-├── ui/
-│   ├── backend.py        # QML ↔ Python bridge (QObject with properties/slots)
+├── core/                    # Backend logic
+│   ├── engine.py            # Core engine — wires hook ↔ simulator ↔ config
+│   ├── mouse_hook.py        # Low-level mouse hook + HID++ gesture listener
+│   ├── hid_gesture.py       # HID++ 2.0 gesture button divert (Bluetooth)
+│   ├── key_simulator.py     # SendInput-based action simulator (22 actions)
+│   ├── config.py            # Config manager (JSON load/save/migrate)
+│   └── app_detector.py      # Foreground app polling
+│
+├── ui/                      # UI layer
+│   ├── backend.py           # QML ↔ Python bridge (QObject with properties/slots)
 │   └── qml/
-│       ├── Main.qml      # App shell (sidebar + page stack + tray toast)
-│       ├── MousePage.qml # Merged mouse diagram + profile manager
-│       ├── ScrollPage.qml# DPI slider + scroll inversion toggles
-│       ├── HotspotDot.qml# Interactive button overlay on mouse image
-│       ├── ActionChip.qml# Selectable action pill
-│       └── Theme.js      # Shared colors and constants
+│       ├── Main.qml         # App shell (sidebar + page stack + tray toast)
+│       ├── MousePage.qml    # Merged mouse diagram + profile manager
+│       ├── ScrollPage.qml   # DPI slider + scroll inversion toggles
+│       ├── HotspotDot.qml   # Interactive button overlay on mouse image
+│       ├── ActionChip.qml   # Selectable action pill
+│       └── Theme.js         # Shared colors and constants
 │
 └── images/
-    ├── mouse.png         # MX Master 3S top-down diagram
-    ├── logo.png          # LogiControl logo (source)
-    ├── logo.ico          # Multi-size icon for shortcuts
-    ├── logo_icon.png     # Square icon with background
-    ├── chrom.png         # App icon: Chrome
-    ├── VSCODE.png        # App icon: VS Code
-    ├── VLC.png           # App icon: VLC
-    └── media.webp        # App icon: Windows Media Player
+    ├── mouse.png            # MX Master 3S top-down diagram
+    ├── logo.png             # LogiControl logo (source)
+    ├── logo.ico             # Multi-size icon for shortcuts
+    ├── logo_icon.png        # Square icon with background
+    ├── chrom.png            # App icon: Chrome
+    ├── VSCODE.png           # App icon: VS Code
+    ├── VLC.png              # App icon: VLC
+    └── media.webp           # App icon: Windows Media Player
 ```
 
 ## UI Overview
